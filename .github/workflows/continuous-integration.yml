@@ -68,7 +68,7 @@ jobs:
           path: "coverage.xml"
 
   upload_coverage:
-    name: "Upload coverage to Codecov"
+    name: "Upload coverage to Qlty"
     runs-on: "ubuntu-22.04"
     needs:
       - "phpunit"
@@ -84,7 +84,8 @@ jobs:
         with:
           path: "reports"
 
-      - name: "Upload to Codecov"
-        uses: "codecov/codecov-action@v4"
+      - name: "Upload to Qlty"
+        uses: "qltysh/qlty-action/coverage@v2"
         with:
-          directory: reports
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: "reports/**/*.xml"
