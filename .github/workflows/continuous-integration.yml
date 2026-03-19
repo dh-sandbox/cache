@@ -89,3 +89,4 @@ jobs:
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: "reports/**/*.xml"
+          format: clover
